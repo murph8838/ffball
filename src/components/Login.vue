@@ -2,11 +2,11 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <v-btn color="primary">Login with Yahoo!</v-btn>
+        <v-btn color="primary" @click="login">Login with Yahoo!</v-btn>
       </v-layout>
     </v-slide-y-transition>
   </v-container>
-</template>s
+</template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -25,3 +25,13 @@ a {
   color: #42b983;
 }
 </style>
+
+<script>
+  export default {
+    methods: {
+      login: function () {
+        console.log('I happened!');
+      }
+    }
+  }
+</script>
