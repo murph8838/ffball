@@ -37,7 +37,7 @@ a {
         const yahooAuth = new ClientOAuth2({
           clientId: 'dj0yJmk9M2xJVUZ0QUdCVGtBJmQ9WVdrOWNuVkRlVFY1TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kZQ--',
           authorizationUri: 'https://api.login.yahoo.com/oauth2/request_auth',
-          redirectUri: 'https://murph8838.github.io/footify/hw'
+          redirectUri: 'https://murph8838.github.io/footify'
         },
         {
           query: {
