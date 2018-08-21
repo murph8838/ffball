@@ -33,3 +33,14 @@ a {
   color: #42b983;
 }
 </style>
+
+<script>
+  export default {
+    beforeMount(){
+      // 8/20 - Not sure why, but this isn't executing when oauth redirects here
+      console.log('running oauth callback');
+      window.oauth2Callback(window.URL);
+      console.log('ran callback');
+    }
+  }
+</script>

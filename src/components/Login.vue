@@ -34,10 +34,11 @@ a {
         const request = require('request');
  
         console.log('Creating yahooAuth object');
+        console.log('origin: ', window.location.origin);
         const yahooAuth = new ClientOAuth2({
           clientId: 'dj0yJmk9M2xJVUZ0QUdCVGtBJmQ9WVdrOWNuVkRlVFY1TXpZbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1kZQ--',
           authorizationUri: 'https://api.login.yahoo.com/oauth2/request_auth',
-          redirectUri: 'https://murph8838.github.io/footify'
+          redirectUri: 'https://murph8838.github.io/footify/'
         },
         {
           query: {
@@ -45,7 +46,10 @@ a {
           }
         });
 
+        // this callback should just be defined and exported in its own file somewhere...
+        // leaving it here for now...
         window.oauth2Callback = function (uri) {
+          console.log('in callback: ', uri);
           yahooAuth.token.getToken(uri)
             .then(function (user) {
               console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... }
@@ -65,7 +69,7 @@ a {
         }
         
         // Open the page in a new window, then redirect back to a page that calls our global `oauth2Callback` function.
-        window.open(yahooAuth.token.getUri())
+        window.location.href = yahooAuth.token.getUri();
 
         console.log('I happened!');
       }
